@@ -25,5 +25,11 @@ public class AddFractionsTest {
         Fraction result = new Fraction(2).plus(new Fraction(3));
         assertEquals(5, result.intValue());
     }
+
+    @Test
+    public void negativeNumberPlusPositiveNumber() {
+        Fraction result = new Fraction(2).plus(new Fraction(-7));
+        assertEquals(-5, result.intValue());
+    }
 }
 
