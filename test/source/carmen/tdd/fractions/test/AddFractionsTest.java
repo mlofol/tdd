@@ -31,5 +31,12 @@ public class AddFractionsTest {
         Fraction result = new Fraction(2).plus(new Fraction(-7));
         assertEquals(-5, result.intValue());
     }
+
+    @Test
+    public void commonDenominatorDifferentToOne() {
+        Fraction result = new Fraction(1,5).plus(new Fraction(2,5));
+        assertEquals(3, result.getNumerator());
+        assertEquals(5, result.getDenominator());
+    }
 }
 
