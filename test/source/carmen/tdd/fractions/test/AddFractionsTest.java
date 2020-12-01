@@ -17,28 +17,24 @@ public class AddFractionsTest {
 
     @Test
     public void nonZeroPlusZero() {
-        Fraction result = new Fraction(3).plus(new Fraction(0));
-        assertEquals(3, result.intValue());
+        assertEquals(new Fraction(3), new Fraction(3).plus(new Fraction(0)));
     }
 
     @Test
     public void nonZeroPlusNonZero() {
-        Fraction result = new Fraction(2).plus(new Fraction(3));
-        assertEquals(5, result.intValue());
+        assertEquals(new Fraction(5), new Fraction(2).plus(new Fraction(3)));
     }
 
     @Test
     public void negativeNumberPlusPositiveNumber() {
         Fraction result = new Fraction(2).plus(new Fraction(-7));
-        assertEquals(-5, result.intValue());
+        assertEquals(new Fraction(-5), result);
     }
 
     @Test
     public void commonDenominatorDifferentToOne() {
         Fraction result = new Fraction(1, 5).plus(new Fraction(2, 5));
-        assertEquals(3, result.getNumerator());
-        assertEquals(5, result.getDenominator());
-        assertEquals(new Fraction(3,5), result);
+        assertEquals(new Fraction(3, 5), result);
     }
 
     @Test
@@ -61,5 +57,9 @@ public class AddFractionsTest {
         assertNotEquals(new Fraction(6), new Fraction(5));
     }
 
+    @Test
+    public void differentDenominatorsWithoutReducing() {
+        assertEquals(new Fraction(5, 6), new Fraction(1, 2).plus(new Fraction(1, 3)));
+    }
 }
 
