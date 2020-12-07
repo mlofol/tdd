@@ -34,4 +34,10 @@ public class GreatestCommonDivisorTest {
         assertEquals(7, NumberTheory.greatestCommonDenominator(49, 315));
     }
 
+    @Test
+    public void zero() {
+        assertEquals(1, NumberTheory.greatestCommonDenominator(1,0));
+        assertEquals(5, NumberTheory.greatestCommonDenominator(5,0));
+        assertEquals(0, NumberTheory.greatestCommonDenominator(0,0));
+    }
 }
