@@ -1,5 +1,6 @@
 package carmen.tdd.fractions.test;
 
+import carmen.tdd.fractions.Fraction.NumberTheory;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
@@ -8,15 +9,29 @@ public class GreatestCommonDivisorTest {
 
     @Test
     public void oneAndOneShouldBeOne() {
-        assertEquals(1,greatestCommonDenominator(1,1));
+        assertEquals(1, NumberTheory.greatestCommonDenominator(1, 1));
+        assertEquals(2, NumberTheory.greatestCommonDenominator(2, 2));
+        assertEquals(2, NumberTheory.greatestCommonDenominator(2, 6));
+
     }
 
-    private int greatestCommonDenominator(int denominator1, int denominator2) {
-        while (denominator2!=0){
-            int tryWith= denominator2;
-            denominator2 = denominator1 % tryWith;
-            denominator1 = tryWith;
-        }
-        return denominator1;
+    @Test
+    public void primesFactors() {
+        assertEquals(1, NumberTheory.greatestCommonDenominator(2, 3));
+        assertEquals(1, NumberTheory.greatestCommonDenominator(4, 7));
+        assertEquals(1, NumberTheory.greatestCommonDenominator(2, 3));
     }
+
+    @Test
+    public void oneIsMultipleOfTheOther() {
+        assertEquals(3, NumberTheory.greatestCommonDenominator(3, 9));
+        assertEquals(5, NumberTheory.greatestCommonDenominator(5, 30));
+    }
+
+    @Test
+    public void commonFactor() {
+        assertEquals(2, NumberTheory.greatestCommonDenominator(6, 8));
+        assertEquals(7, NumberTheory.greatestCommonDenominator(49, 315));
+    }
+
 }

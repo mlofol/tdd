@@ -11,8 +11,9 @@ public class Fraction {
     }
 
     public Fraction(int numerator, int denominator) {
-        this.numerator = numerator;
-        this.denominator = denominator;
+        final int gdc = NumberTheory.greatestCommonDenominator(numerator, denominator);
+        this.numerator = numerator / gdc;
+        this.denominator = denominator / gdc;
     }
 
     public Fraction plus(Fraction fraction) {

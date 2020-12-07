@@ -2,7 +2,6 @@ package carmen.tdd.fractions.test;
 
 import carmen.tdd.fractions.Fraction.Fraction;
 import junit.framework.TestCase;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
@@ -14,7 +13,7 @@ public class ReduceFractionTest {
     }
 
     @Test
-    @Ignore("Waiting to implement GCD")
+    // @Ignore("Waiting to implement GCD")
     public void reduceToNotWholeNumber() {
         assertEquals(new Fraction(3, 4), new Fraction(6, 8));
     }
