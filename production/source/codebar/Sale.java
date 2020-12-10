@@ -1,5 +1,8 @@
 package codebar;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Sale {
     private Display display;
 
@@ -8,13 +11,18 @@ public class Sale {
     }
 
     public void onBarcode(String barcode) {
-        if ("12345".equals(barcode)) {
-            display.setPrice("7.6euros");
+
+        Map<String, String> pricesByBarcode = new HashMap<>();
+        pricesByBarcode.put("12345", "7.6euros");
+        pricesByBarcode.put("12346", "0.6euros");
+        if ("".equals(barcode)) {
+            display.setPrice("Scanning error: empty barcode");
+        } else if ("12345".equals(barcode)) {
+            display.setPrice(pricesByBarcode.get(barcode));
         } else if ("12346".equals(barcode)) {
-            display.setPrice("0.6euros");
-        }
-        else{
-            display.setPrice("Product not found for 999");
+            display.setPrice(pricesByBarcode.get(barcode));
+        } else {
+            display.setPrice("Product not found for " + barcode);
         }
     }
 }
