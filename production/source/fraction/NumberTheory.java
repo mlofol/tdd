@@ -1,4 +1,4 @@
-package carmen.tdd.fractions.Fraction;
+package fraction;
 
 public class NumberTheory {
     public static int greatestCommonDenominator(int denominator1, int denominator2) {

@@ -1,6 +1,6 @@
 package carmen.tdd.fractions.test;
 
-import carmen.tdd.fractions.Fraction.Fraction;
+import fraction.Fraction;
 import junit.framework.TestCase;
 import org.junit.Test;
 

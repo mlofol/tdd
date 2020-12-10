@@ -1,6 +1,6 @@
 package carmen.tdd.fractions.test;
 
-import carmen.tdd.fractions.Fraction.NumberTheory;
+import fraction.NumberTheory;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;

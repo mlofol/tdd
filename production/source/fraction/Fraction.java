@@ -1,4 +1,4 @@
-package carmen.tdd.fractions.Fraction;
+package fraction;
 
 import java.util.Objects;
 

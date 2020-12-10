@@ -1,7 +1,6 @@
 package carmen.tdd.fractions.test;
 
-import carmen.tdd.fractions.Fraction.Fraction;
-import org.junit.Ignore;
+import fraction.Fraction;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
