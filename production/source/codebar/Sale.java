@@ -17,9 +17,7 @@ public class Sale {
         pricesByBarcode.put("12346", "0.6euros");
         if ("".equals(barcode)) {
             display.setPrice("Scanning error: empty barcode");
-        } else if ("12345".equals(barcode)) {
-            display.setPrice(pricesByBarcode.get(barcode));
-        } else if ("12346".equals(barcode)) {
+        } else if (pricesByBarcode.containsKey(barcode)) {
             display.setPrice(pricesByBarcode.get(barcode));
         } else {
             display.setPrice("Product not found for " + barcode);
