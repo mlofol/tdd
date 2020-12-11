@@ -7,11 +7,9 @@ public class Sale {
     private Display display;
     private final Map<String, String> pricesByBarcode;
 
-    public Sale(Display display) {
+    public Sale(Display display, Map<String, String> pricesByBarcode) {
         this.display = display;
-        pricesByBarcode = new HashMap<>();
-        pricesByBarcode.put("12345", "7.6euros");
-        pricesByBarcode.put("12346", "0.6euros");
+        this.pricesByBarcode = pricesByBarcode;
     }
 
     public void onBarcode(String barcode) {
