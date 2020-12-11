@@ -1,8 +1,7 @@
 package read.bar.code.test;
 
-import codebar.Display;
-import codebar.Sale;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -10,15 +9,25 @@ import java.util.HashMap;
 import static org.junit.Assert.assertEquals;
 
 public class SellOneItemTest {
-    @Test
-    public void productFound() {
-        Display display = new Display();
-        Sale sale = new Sale(display, new HashMap<String, String>() {
+
+    private Display display;
+    private Sale sale;
+    private Catalog catalog;
+
+    @Before
+    public void setUp() throws Exception {
+        display = new Display();
+        catalog = new Catalog(new HashMap<String, String>() {
             {
                 put("12345", "7.6euros");
                 put("12346", "0.6euros");
             }
         });
+        sale = new Sale(display, catalog);
+    }
+
+    @Test
+    public void productFound() {
 
         sale.onBarcode("12345");
 
@@ -27,13 +36,6 @@ public class SellOneItemTest {
 
     @Test
     public void anotherProductFound() {
-        Display display = new Display();
-        Sale sale = new Sale(display, new HashMap<String, String>() {
-            {
-                put("12345", "7.6euros");
-                put("12346", "0.6euros");
-            }
-        });
 
         sale.onBarcode("12346");
 
@@ -42,13 +44,7 @@ public class SellOneItemTest {
 
     @Test
     public void productNotFound() {
-        Display display = new Display();
-        Sale sale = new Sale(display, new HashMap<String, String>() {
-            {
-                put("12345", "7.6euros");
-                put("12346", "0.6euros");
-            }
-        });
+
 
         sale.onBarcode("999");
 
@@ -57,13 +53,6 @@ public class SellOneItemTest {
 
     @Test
     public void anotherProductNotFound() {
-        Display display = new Display();
-        Sale sale = new Sale(display, new HashMap<String, String>() {
-            {
-                put("12345", "7.6euros");
-                put("12346", "0.6euros");
-            }
-        });
 
         sale.onBarcode("990");
 
@@ -73,8 +62,8 @@ public class SellOneItemTest {
     @Test
     public void emptyBarcode() {
         Display display = new Display();
-        // Null is an smeall in a constructor. Violation of SRP
-        Sale sale = new Sale(display, null);
+        // Null is an smell in a constructor. Violation of SRP
+        Sale sale = new Sale(display, catalog);
 
         sale.onBarcode("");
 
