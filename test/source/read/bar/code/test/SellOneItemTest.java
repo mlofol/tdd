@@ -73,12 +73,8 @@ public class SellOneItemTest {
     @Test
     public void emptyBarcode() {
         Display display = new Display();
-        Sale sale = new Sale(display, new HashMap<String, String>() {
-            {
-                put("12345", "7.6euros");
-                put("12346", "0.6euros");
-            }
-        });
+        // Null is an smeall in a constructor. Violation of SRP
+        Sale sale = new Sale(display, null);
 
         sale.onBarcode("");
 

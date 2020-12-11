@@ -1,6 +1,5 @@
 package codebar;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class Sale {
@@ -14,10 +13,12 @@ public class Sale {
 
     public void onBarcode(String barcode) {
 
-
+// SMELL Refused bequest; move this up the call stack
         if ("".equals(barcode)) {
             display.setPrice("Scanning error: empty barcode");
-        } else if (pricesByBarcode.containsKey(barcode)) {
+            return;
+        }
+        if (pricesByBarcode.containsKey(barcode)) {
             display.setPrice(pricesByBarcode.get(barcode));
         } else {
             display.setPrice("Product not found for " + barcode);
