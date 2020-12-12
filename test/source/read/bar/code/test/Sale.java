@@ -3,6 +3,7 @@ package read.bar.code.test;
 public class Sale {
     private final Catalog catalog;
     private Display display;
+    private String price;
 
     public Sale(Display display, Catalog catalog) {
         this.display = display;
@@ -10,13 +11,12 @@ public class Sale {
     }
 
     public void onBarcode(String barcode) {
-
-// SMELL Refused bequest; move this up the call stack
+        // SMELL Refused bequest; move this up the call stack
         if ("".equals(barcode)) {
             display.displayEmptyBarcodeMessage();
             return;
         }
-        String price = catalog.findPrice(barcode);
+        price = catalog.findPrice(barcode);
         if (price == null) {
             display.displayProductNotFoundMessage(barcode);
         } else {
@@ -25,7 +25,10 @@ public class Sale {
     }
 
     public void onTotal() {
-        display.displayNoSaleInProgressMessage();
+        if (price == null)
+            display.displayNoSaleInProgressMessage();
+        else
+            display.setTotal("Total: " + price);
     }
 
 }
