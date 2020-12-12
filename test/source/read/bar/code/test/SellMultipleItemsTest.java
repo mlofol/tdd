@@ -29,4 +29,18 @@ public class SellMultipleItemsTest {
 
         Assert.assertEquals("Total: $6.50", display.getTotal());
     }
+
+    @Test
+    public void oneItemNotFound() {
+        Display display = new Display();
+        Catalog catalog = new Catalog(new HashMap<String, String>() {{
+            put("123", "$6.50");
+        }});
+        Sale sale = new Sale(display, catalog);
+
+        sale.onBarcode("8888");
+        sale.onTotal();
+
+        Assert.assertEquals("No sale in progress. Try scanning a product.", display.getTotal());
+    }
 }
