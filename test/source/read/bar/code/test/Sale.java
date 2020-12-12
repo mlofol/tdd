@@ -1,9 +1,12 @@
 package read.bar.code.test;
 
+import java.util.List;
+
 public class Sale {
     private final Catalog catalog;
     private Display display;
     private String scannedPrice;
+    private List<String> scannedPrices;
 
     public Sale(Display display, Catalog catalog) {
         this.display = display;
