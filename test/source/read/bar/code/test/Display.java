@@ -36,4 +36,12 @@ public  class Display {
     public void displayProductNotFoundMessage(String barcode) {
         setPrice("Product not found for " + barcode);
     }
+
+    public void displayPrice(String price) {
+        setPrice(price);
+    }
+
+    public void displayTotal(String total) {
+        setTotal("Total: " + total);
+    }
 }

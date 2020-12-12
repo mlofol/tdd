@@ -20,7 +20,7 @@ public class Sale {
         if (price == null) {
             display.displayProductNotFoundMessage(barcode);
         } else {
-            display.setPrice(price);
+            display.displayPrice(price);
         }
     }
 
@@ -28,7 +28,7 @@ public class Sale {
         if (price == null)
             display.displayNoSaleInProgressMessage();
         else
-            display.setTotal("Total: " + price);
+            display.displayTotal(price);
     }
 
 }
