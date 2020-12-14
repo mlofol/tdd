@@ -18,7 +18,14 @@ public class FormatMonetaryAmountTest {
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{
                 {789, "$7.89"},
-                {520, "$5.20"}
+                {789, "$7.89"},
+                {400, "$4.00"},
+                {2, "$0.02"},
+                {37, "$0.37"},
+                {418976, "$4,189.76"},
+                {210832281, "$2,108,322.81"},
+                {0, "$0.00"}
+
         });
     }
 
@@ -34,6 +41,6 @@ public class FormatMonetaryAmountTest {
 
     private String format(int priceInCents) {
         double amount = priceInCents / 100.0d;
-        return ""                + String.format(Locale.ROOT,"$%.2f", amount);
+        return "" + String.format(Locale.ROOT, "$%,.2f", amount);
     }
 }
