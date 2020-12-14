@@ -1,12 +1,9 @@
 package read.bar.code.test;
 
-import java.util.List;
-
 public class Sale {
     private final Catalog catalog;
     private Display display;
     private String scannedPrice;
-    private List<String> scannedPrices;
 
     public Sale(Display display, Catalog catalog) {
         this.display = display;
@@ -19,18 +16,22 @@ public class Sale {
             display.displayEmptyBarcodeMessage();
             return;
         }
-        scannedPrice = catalog.findPrice(barcode);
+        scannedPrice = catalog.findPriceThenFormatPrice(barcode);
         if (scannedPrice == null) {
             display.displayProductNotFoundMessage(barcode);
         } else {
-            display.displayPrice(scannedPrice);
+            display.displayPrice(formatMonetaryAmount(scannedPrice));
         }
+    }
+
+    private String formatMonetaryAmount(String scannedPriceInText) {
+        return scannedPriceInText;
     }
 
     public void onTotal() {
         boolean saleInProgress = (scannedPrice != null);
         if (saleInProgress) {
-            display.displayTotal(scannedPrice);
+            display.displayTotal(formatMonetaryAmount(scannedPrice));
         } else {
             display.displayNoSaleInProgressMessage();
         }

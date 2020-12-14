@@ -1,6 +1,7 @@
 package read.bar.code.test;
 
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -49,6 +50,7 @@ public class SellMultipleItemsTest {
     }
 
     @Test
+    @Ignore
     public void sellSeveralItems() {
         Display display = new Display();
         Catalog catalog = new Catalog(new HashMap<String, String>() {
