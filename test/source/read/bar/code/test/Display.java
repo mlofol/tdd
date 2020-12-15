@@ -1,9 +1,17 @@
 package read.bar.code.test;
 
-public  class Display {
+import java.util.Locale;
+
+public class Display {
 
     private String price;
     private String total;
+
+    // Smell move this behaviour
+    public static String format(int priceInCents) {
+        double amount = priceInCents / 100.0d;
+        return "" + String.format(Locale.ROOT, "$%,.2f", amount);
+    }
 
     public String getText() {
         return price;
@@ -37,7 +45,7 @@ public  class Display {
         setPrice("Product not found for " + barcode);
     }
 
-    public void displayPrice(String price) {
+    public void displayText(String price) {
         setPrice(price);
     }
 

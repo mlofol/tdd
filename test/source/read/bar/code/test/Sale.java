@@ -20,8 +20,8 @@ public class Sale {
         if (priceInCents == null) {
             display.displayProductNotFoundMessage(barcode);
         } else {
-            scannedPrice = Catalog.format(priceInCents);
-            display.displayPrice(scannedPrice);
+            scannedPrice = Display.format(priceInCents);
+            display.displayText(scannedPrice);
         }
     }
 
