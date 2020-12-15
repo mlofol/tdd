@@ -52,4 +52,8 @@ public class Display {
     public void displayTotal(String total) {
         setTotal("Total: " + total);
     }
+
+    public void displayPrice(Integer priceInCents) {
+        displayText( format(priceInCents));
+    }
 }
