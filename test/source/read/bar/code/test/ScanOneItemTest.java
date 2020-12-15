@@ -37,7 +37,7 @@ public class ScanOneItemTest {
 
         sale.onBarcode("12345");
 
-        assertEquals("7.6euros", display.getText());
+        assertEquals("$7.60", display.getText());
     }
 
     @Test
@@ -45,7 +45,7 @@ public class ScanOneItemTest {
 
         sale.onBarcode("12346");
 
-        assertEquals("0.6euros", display.getText());
+        assertEquals("$0.60", display.getText());
     }
 
     @Test

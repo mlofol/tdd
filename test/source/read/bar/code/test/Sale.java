@@ -20,18 +20,14 @@ public class Sale {
         if (scannedPrice == null) {
             display.displayProductNotFoundMessage(barcode);
         } else {
-            display.displayPrice(formatMonetaryAmount(scannedPrice));
+            display.displayPrice(scannedPrice);
         }
-    }
-
-    private String formatMonetaryAmount(String scannedPriceInText) {
-        return scannedPriceInText;
     }
 
     public void onTotal() {
         boolean saleInProgress = (scannedPrice != null);
         if (saleInProgress) {
-            display.displayTotal(formatMonetaryAmount(scannedPrice));
+            display.displayTotal(scannedPrice);
         } else {
             display.displayNoSaleInProgressMessage();
         }

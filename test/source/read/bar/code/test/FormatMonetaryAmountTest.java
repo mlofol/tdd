@@ -7,7 +7,6 @@ import org.junit.runners.Parameterized;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Locale;
 
 @RunWith(Parameterized.class)
 public class FormatMonetaryAmountTest {
@@ -36,11 +35,7 @@ public class FormatMonetaryAmountTest {
 
     @Test
     public void test() {
-        Assert.assertEquals(expectedFormattedPrice, format(priceInCents));
+        Assert.assertEquals(expectedFormattedPrice, Catalog.format(priceInCents));
     }
 
-    private String format(int priceInCents) {
-        double amount = priceInCents / 100.0d;
-        return "" + String.format(Locale.ROOT, "$%,.2f", amount);
-    }
 }
