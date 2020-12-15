@@ -49,8 +49,8 @@ public class Display {
         setPrice(price);
     }
 
-    public void displayTotal(String total) {
-        setTotal("Total: " + total);
+    public void displayTotal(Integer pendingPurchaseTotal) {
+        setTotal("Total: " + format(pendingPurchaseTotal));
     }
 
     public void displayPrice(Integer priceInCents) {

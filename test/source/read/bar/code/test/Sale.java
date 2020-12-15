@@ -23,18 +23,22 @@ public class Sale {
         if (priceInCents == null) {
             display.displayProductNotFoundMessage(barcode);
         } else {
+            //Refactor Eventually a shopping cart
             pendingPurchaseItemPrices.add(priceInCents);
             display.displayPrice(priceInCents);
         }
     }
 
     public void onTotal() {
-        boolean saleInProgress = (!pendingPurchaseItemPrices.isEmpty());
-        if (saleInProgress) {
-            display.displayTotal(Display.format(pendingPurchaseItemPrices.stream().findFirst().get()));
-        } else {
+        if (pendingPurchaseItemPrices.isEmpty()) {
             display.displayNoSaleInProgressMessage();
+        } else {
+            display.displayTotal(pendingPurchaseTotal());
         }
+    }
+
+    private Integer pendingPurchaseTotal() {
+        return pendingPurchaseItemPrices.stream().findFirst().get();
     }
 
 }
