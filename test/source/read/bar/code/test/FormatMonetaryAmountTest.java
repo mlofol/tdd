@@ -35,7 +35,7 @@ public class FormatMonetaryAmountTest {
 
     @Test
     public void test() {
-        Assert.assertEquals(expectedFormattedPrice, Display.format(priceInCents));
+        Assert.assertEquals(expectedFormattedPrice, Display.formatMonetaryAmount(priceInCents));
     }
 
 }

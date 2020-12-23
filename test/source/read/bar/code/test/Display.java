@@ -8,16 +8,12 @@ public class Display {
     private String total;
 
     // Smell move this behaviour
-    public static String format(int priceInCents) {
+    public static String formatMonetaryAmount(int priceInCents) {
         double amount = priceInCents / 100.0d;
         return "" + String.format(Locale.ROOT, "$%,.2f", amount);
     }
 
     public String getText() {
-        return price;
-    }
-
-    public String getPrice() {
         return price;
     }
 
@@ -45,15 +41,11 @@ public class Display {
         setPrice("Product not found for " + barcode);
     }
 
-    public void displayText(String price) {
-        setPrice(price);
-    }
-
     public void displayTotal(Integer pendingPurchaseTotal) {
-        setTotal("Total: " + format(pendingPurchaseTotal));
+        setTotal("Total: " + formatMonetaryAmount(pendingPurchaseTotal));
     }
 
     public void displayPrice(Integer priceInCents) {
-        displayText( format(priceInCents));
+        setPrice(formatMonetaryAmount(priceInCents));
     }
 }

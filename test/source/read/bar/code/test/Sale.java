@@ -2,6 +2,7 @@ package read.bar.code.test;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 public class Sale {
     private final Catalog catalog;
@@ -37,8 +38,13 @@ public class Sale {
         }
     }
 
+    // Looks like model behaviour to me
     private Integer pendingPurchaseTotal() {
-        return pendingPurchaseItemPrices.stream().findFirst().get();
+        return computePurchaseTotal(pendingPurchaseItemPrices);
+    }
+
+    public static Integer computePurchaseTotal(Collection<Integer> purchaseItemPrices) {
+        return purchaseItemPrices.stream().collect(Collectors.summingInt(Integer::intValue));
     }
 
 }

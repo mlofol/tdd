@@ -18,12 +18,7 @@ public class ScanOneItemTest {
     @Before
     public void setUp() throws Exception {
         display = new Display();
-        catalog = new Catalog(new HashMap<String, String>() {
-            {
-                put("12345", "7.6euros");
-                put("12346", "0.6euros");
-            }
-        }, new HashMap<String, Integer>() {
+        catalog = new Catalog(new HashMap<String, Integer>() {
             {
                 put("12345", 760);
                 put("12346", 60);

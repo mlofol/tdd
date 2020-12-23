@@ -20,9 +20,7 @@ public class SellMultipleItemsTest {
     @Test
     public void oneItems() {
         Display display = new Display();
-        Catalog catalog = new Catalog(new HashMap<String, String>() {{
-            put("123", "$6.50");
-        }}, new HashMap<String, Integer>() {{
+        Catalog catalog = new Catalog( new HashMap<String, Integer>() {{
             put("123", 650);
         }});
         Sale sale = new Sale(display, catalog);
@@ -36,9 +34,7 @@ public class SellMultipleItemsTest {
     @Test
     public void oneItemNotFound() {
         Display display = new Display();
-        Catalog catalog = new Catalog(new HashMap<String, String>() {{
-            put("123", "$6.50");
-        }}, new HashMap<String, Integer>() {{
+        Catalog catalog = new Catalog( new HashMap<String, Integer>() {{
             put("123", 650);
         }});
         Sale sale = new Sale(display, catalog);
@@ -53,13 +49,7 @@ public class SellMultipleItemsTest {
     @Ignore
     public void sellSeveralItems() {
         Display display = new Display();
-        Catalog catalog = new Catalog(new HashMap<String, String>() {
-            {
-                put("1", "$8.50");
-                put("2", "$12.75");
-                put("3", "$3.30");
-            }
-        }, new HashMap<String, Integer>() {
+        Catalog catalog = new Catalog( new HashMap<String, Integer>() {
             {
                 put("1", 850);
                 put("2", 1275);
